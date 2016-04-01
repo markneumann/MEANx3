@@ -5,11 +5,11 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     $scope.errorArea = {};
 
     console.log('top of PollController');
-    // Create a poll
+    // show the polls
     console.log('route params', $routeParams);
     var id = $routeParams.id;
-    QuestionFactory.show(id, function(data) {
-        console.log('returning question from factory');
+    PollFactory.show(id, function(data) {
+        console.log('returning poll from factory');
         $scope.question = data;
     });
 
@@ -38,6 +38,18 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         });
         // $location.url('/dashboard');
     };
+
+    // New poll record
+    $scope.show_poll = function(q_id) {
+        console.log('q_id =', $scope.question.q_id);
+        console.log('new_poll event', $scope.new_p);
+        //simply pass in the entire object
+        PollFactory.create($scope.new_p, function(theOutput) {
+            console.log('returned poll', theOutput);
+        });
+        // $location.url('/dashboard');
+    };
+
 
 //
     // function forErrors(output) {

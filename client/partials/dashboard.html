@@ -13,10 +13,10 @@
         <tr><th>Question</th><th>Answers</th><th>Action</th></tr>
         <tr ng-repeat="question in questions | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
             <td>{{question.theQuestion}}</td>
-            <td>{{question.answers}} </td>
+            <td>{{question.answers}} - {{question._id}}</td>
             <td>
-                <a href='' ng-click='showpoll(quesstion.q_id,question.theQuestion)'> Show</a>
-                <a href='' ng-click='addpoll(poll.q_id,question.theQuestion)'> Answer</a>
+                <a href='' ng-click='show_poll(quesstion.q_id,question.theQuestion)'> Show</a>
+                <a href='#/poll/{{question._id}}/new'> Answer</a>
             </td>
         </tr>
     </table>

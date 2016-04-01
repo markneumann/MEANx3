@@ -11,8 +11,11 @@ MEANModule.config(function($routeProvider){                     /////////////
     .when('/dashboard', {
         templateUrl: '/partials/dashboard.html'
     })
-    .when('/poll/:id', {
+    .when('/poll/:id/new', {
         templateUrl: '/partials/poll.html'
+    })
+    .when('/poll/:id/show', {
+        templateUrl: '/partials/pollresults.html'
     })
     .when('/question', {
         templateUrl: '/partials/question.html'

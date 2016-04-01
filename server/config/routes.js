@@ -10,7 +10,7 @@ module.exports = function(app){                                    /////////////
     app.post('/polls', Polls.new_poll); //Save test results from one test from the test partial
     // //app.post('/polls/edit/:id, Test.edit_test');
     // // // app.get('/polls/remove/:id', Test.remove_test);
-    // // // app.get('/polls/show/:id', Test.show_test);
+    app.get('/polls/show/:id', Polls.show_poll);
     app.get('/questions', Questions.index); // Return a question (random), with answers, etc.. for test partial
     app.post('/questions', Questions.new_question);  // Create a new question submitted fro question partial
     app.get('/questions/show/:id', Questions.show_question);

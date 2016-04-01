@@ -20,6 +20,20 @@ MEANModule.factory('PollFactory', function($http) {
             });
     };
 
+    factory.show = function(data, callback) {
+        console.log("factory.show = ", data);
+        // Where do we get access to $http?
+        // $http.get('/polls')
+        //     .then(function(output) {
+        //         polls = output.data;
+        //         console.log("output =", output.data);
+        //         callback(polls);
+        //     })
+        //     .catch(function(err) {
+        //         console.log("err =", err);
+        //     });
+    };
+
 // create a new poll instance
     factory.create = function(data, callback) {
         console.log('the poll data', data);

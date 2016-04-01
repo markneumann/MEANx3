@@ -43,17 +43,17 @@ module.exports = (function() {
         },
 
 
-        // show_name:  function(req, res){
-        //     console.log("--> show path");
-        //     console.log(req.params);
-        //     Name.find({_id: req.params.id}, function(err, polls) {
-        //         if(err) {
-        //             console.log(err);
-        //             res.render('errors', {title: 'you have errors!', errors: name.errors});
-        //         } else {
-        //             res.json({names: names}); //<-- think we change this
-        //         }
-        //     });
-        // },
+        show_poll:  function(req, res){
+            console.log("--> show path");
+            console.log(req.params);
+            Poll.find({q_id: req.params.id}, function(err, polls) {
+                if(err) {
+                    console.log(err);
+                    res.render('errors', {title: 'you have errors!', errors: name.errors});
+                } else {
+                    res.json(output); //<-- think we change this
+                }
+            });
+        },
     };
 })(); //returns object
