@@ -52,6 +52,7 @@ module.exports = (function() {
                     res.render('errors', {title: 'you have errors!', errors: name.errors});
                 } else {
                     res.json(polls); //<-- think we change this
+                    console.log('polls =', polls);
                 }
             });
         },
