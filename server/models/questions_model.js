@@ -11,6 +11,7 @@ var QuestionSchema = new mongoose.Schema({
                     required: true,
                     minlength: 10},
     description: String,
+    answers: { type: Number, default: 0},
 }, { timestamps: {createdAt: 'created_at'}
 });
 

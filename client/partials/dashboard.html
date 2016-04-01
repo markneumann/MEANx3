@@ -1,19 +1,23 @@
 <!-- dashboard partial -->
 <div ng-controller='DashboardController'>
-    <h3>Dashboard</h3>
-    {{loggedIn}}
-    <h3><a href='#/question'>Create a New Poll</a> | <a href='' ng-click='logout()'>Logout</a></h3>
+    Welcome: {{loggedIn}}
+    <h3><a href='#/'>Home</a> |
+        <a href='#/question'>Add a Question</a> |
+        <a href='' ng-click='logout()'>Logout</a></h3>
 
     <div id= 'filter'>
         <input type="text" ng-model="filter_name" placeholder="filter">   {{filter_name}}
     </div>
 
     <table>
-        <tr><th>Name</th><th>Survey Question</th><th>Date Posted</th><th>Action</th></tr>
-        <tr ng-repeat="poll in polls | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
-            <td>{{poll.name}}</td>
-            <td><a href='' ng-click='addpoll(poll.q_id,poll.question)'> {{poll.question}}</a></td>
-            <td><input type = 'submit' value = 'Delete' ng-click= 'remove_question()' ng-if='poll.name == loggeIn'></td>
+        <tr><th>Question</th><th>Answers</th><th>Action</th></tr>
+        <tr ng-repeat="question in questions | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
+            <td>{{question.theQuestion}}</td>
+            <td>{{question.answers}} </td>
+            <td>
+                <a href='' ng-click='showpoll(quesstion.q_id,question.theQuestion)'> Show</a>
+                <a href='' ng-click='addpoll(poll.q_id,question.theQuestion)'> Answer</a>
+            </td>
         </tr>
     </table>
 </div>

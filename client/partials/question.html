@@ -5,11 +5,11 @@
         <h2 ng-model='new_q.user'>{{user}}, please enter your question below</h2>
             <form>
                 <form name='newq'>
-                    Question: <textarea name='newq' rows ='4' cols='50'ng-model='new_q.question'></textarea><br>
-                    Option 1: <textarea name='newq' ng-model='new_q.option1'></textarea><br>
-                    Option 2: <textarea name='newq' ng-model='new_q.option2'></textarea><br>
-                    Option 3: <textarea name='newq' ng-model='new_q.option3'></textarea><br>
-                    Option 4: <textarea name='newq' ng-model='new_q.option4'></textarea><br>
+                    Question: <br>
+                    <textarea name='newq' rows ='4' cols='50' ng-model='new_q.question'></textarea><br>
+                    Description
+                    (Optional):<br>
+                     <textarea name='newq'  rows ='4' cols='50' ng-model='new_q.description'></textarea><br>
                     <input type='submit' ng-click="addquestion()" value = 'Create Poll'>
                     <input type='submit' value='Cancel' ng-click="new_q = {}">
                 </form>
