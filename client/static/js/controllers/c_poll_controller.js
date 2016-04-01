@@ -43,12 +43,12 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         // $location.url('/dashboard');
     };
 
-    // New poll record
+    // show poll record
     $scope.show_poll = function(q_id) {
         console.log('q_id =', $scope.question.q_id);
         console.log('new_poll event', $scope.new_p);
         //simply pass in the entire object
-        PollFactory.create($scope.new_p, function(theOutput) {
+        PollFactory.show($scope.new_p, function(theOutput) {
             console.log('returned poll', theOutput);
         });
         // $location.url('/dashboard');
