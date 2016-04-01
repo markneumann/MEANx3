@@ -4,19 +4,24 @@
     <h3><a href='#/'>Home</a> |
         <a href='#/question'>Add a Question</a> |
         <a href='' ng-click='logout()'>Logout</a></h3>
+    <div ng-model='question'>
+        <h2> {{question.theQuestion}} </h2>
+        <p>  {{question.description}} </p>
+        {{question._id}}
 
-    <h2> Question goes here </h2>
-    <p>  Description goes here </p>
-    <table>
-        <tr ng-repeat="poll in polls | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
-            <td>poll.name:<br>
-                poll.comment<br>
-                poll.details</td>
-            <td> Likes go here </td>
-            <td>
-                <div class="button"><input type='submit' value='Like'
-                    ng-click='submit_like(poll._id)'</div>
-            </td>
-        </tr>
-    </table>
+        <table>
+            <tr ng-repeat="poll in polls | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
+                <td>{{poll.name}}:<br>
+                    {{poll.comment}}<br>
+                    {{poll.details}}</td>
+                <td> {{poll.like_count}} </td>
+                <td>
+                    <div class="button"><input type='submit' value='Like'
+                        ng-click='submit_like(poll._id)'</div>
+                        {{question._id}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
 </div>

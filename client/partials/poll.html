@@ -11,7 +11,7 @@
         <p> {{question.description}}</p>
         {{question._id}}
 
-        <div >
+
 
             <h2 ng-model='new_p.user'>{{user}}, please enter your question below</h2>
                 <form>
@@ -22,8 +22,9 @@
                         <textarea name='newp'  rows ='4' cols='50' ng-model='new_p.details'></textarea><br>
                         <input type='submit' ng-click="new_poll(question._id)" value = 'Create Poll'>
                         <input type='submit' value='Cancel' ng-click="new_q = {}">
+                        {{question._id}}
                     </form>
                 <form>
             <br>
-
+        <div >
 </div>

@@ -8,32 +8,36 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     // show the polls
     console.log('route params', $routeParams);
     var id = $routeParams.id;
+    QuestionFactory.show(id, function(data){
+        console.log('returning question from factory');
+        $scope.question = data;
+    });
     PollFactory.show(id, function(data) {
         console.log('returning poll from factory');
-        $scope.question = data;
+        $scope.polls = data;
     });
 
     // Accept a vote and update the question record for that option1
-    // $scope.submit_poll = function(q_id, opt_num) {
-    //     inc_opt_count = {
-    //         q_id: q_id,
-    //     };
-    //     console.log('submit_poll event ', inc_opt_count);
-    //     //var new_count += $scope.optionNumber;
-    //     QuestionFactory.update(inc_opt_count, function(theOutput) {
-    //         console.log("new poll =", $scope.new_poll);
-    //         console.log('returned poll', theOutput);
-    //
-    //         $location.url('/dashboard');
-    //     });
-    // };
+    $scope.submit_like= function(p_id) {
+        console.log('submit_like event ', p_id);
+        PollFactory.update(p_id, function(theOutput) {
+            console.log('returned like', theOutput);
+            $scope.poll.like++;
+        });
+    };
 
     // New poll record
     $scope.new_poll = function(q_id) {
-        console.log('q_id =', $scope.question.q_id);
+        console.log('q_id =', q_id);
         console.log('new_poll event', $scope.new_p);
+        var new_poll = {
+            q_id: q_id,
+            comment: $scope.new_p.comment,
+            details: $scope.new_p.details
+        };
+        console.log('new_poll = ', new_poll);
         //simply pass in the entire object
-        PollFactory.create($scope.new_p, function(theOutput) {
+        PollFactory.create(new_poll, function(theOutput) {
             console.log('returned poll', theOutput);
         });
         // $location.url('/dashboard');

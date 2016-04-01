@@ -47,7 +47,7 @@ MEANModule.factory('QuestionFactory', function($http) {
         });
     };
 
-    //called from poll controller to show the question and data
+    //called from poll controller to update the Answers count
    factory.update = function(data, callback) {
        //console.log("factory.update data:", data);
        $http.put('/questions/edit/', data)

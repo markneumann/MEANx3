@@ -15,8 +15,8 @@
             <td>{{question.theQuestion}}</td>
             <td>{{question.answers}} - {{question._id}}</td>
             <td>
-                <a href='' ng-click='show_poll(quesstion.q_id,question.theQuestion)'> Show</a>
-                <a href='#/poll/{{question._id}}/new'> Answer</a>
+                <a href='#/poll/show/{{question._id}}'> Show</a>
+                <a href='#/poll/new/{{question._id}}'> Answer</a>
             </td>
         </tr>
     </table>

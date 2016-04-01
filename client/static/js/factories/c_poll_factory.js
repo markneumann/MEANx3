@@ -22,16 +22,15 @@ MEANModule.factory('PollFactory', function($http) {
 
     factory.show = function(data, callback) {
         console.log("factory.show = ", data);
-        // Where do we get access to $http?
-        // $http.get('/polls')
-        //     .then(function(output) {
-        //         polls = output.data;
-        //         console.log("output =", output.data);
-        //         callback(polls);
-        //     })
-        //     .catch(function(err) {
-        //         console.log("err =", err);
-        //     });
+         $http.get('/polls/show/56fec9ad350cc195ed6c64e7')
+            .then(function(output) {
+                polls = output.data;
+                console.log("output =", output.data);
+                callback(polls);
+            })
+            .catch(function(err) {
+                console.log("err =", err);
+            });
     };
 
 // create a new poll instance
@@ -47,19 +46,21 @@ MEANModule.factory('PollFactory', function($http) {
             });
     };
 
+    //called from poll controller to update the Likes count
+   factory.update = function(data, callback) {
+       //console.log("factory.update data:", data);
+       $http.put('/poll/edit/', data)
+       .then(function(output) {
+           console.log("show response",output);
+           callback(output.data);
+       })
+       .catch (function(err){
+           console.log("err =", err );
+       });
+   };
 
-//  will need the option for creators of a question to delete that poll instance
-//     // factory.remove = function(data, callback) {
-//     //     console.log("factory.remove data:", data);
-//     //     $http.get('/cusomter/remove/' + data)
-//     //     .then(function() {
-//     //         console.log("remove response");
-//     //         callback();
-//     //     })
-//     //     .catch (function(err){
-//     //         console.log("err =", err );
-//     //     });
-//     // };
+
+
 //
     return factory;
 });
