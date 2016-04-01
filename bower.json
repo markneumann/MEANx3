@@ -1,0 +1,19 @@
+{
+  "directory":   "client/static/bower_components",
+  "name": "customizeUsers",
+  "description": "yet another exercise",
+  "main": "index.html",
+  "authors": [
+    "Mark Neumann <markneumann@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/markneumann/Poll",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

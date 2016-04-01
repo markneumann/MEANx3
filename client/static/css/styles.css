@@ -1,0 +1,57 @@
+body {
+    background-color: FloralWhite;
+    font-family: verdana;
+}
+#variable {
+    margin: auto
+    width: 50%;
+    border-style: solid;
+    padding: 5px;
+    display: block;
+}
+#score {
+    margin: auto
+    width: 60%;
+    border-style: solid;
+    padding: 5px;
+    color: LawnGreen;
+    display: block;
+}
+#play {
+    margin: auto
+    width: 40%;
+    border-style: solid;
+    padding: 5px;
+    color: LightGrey;
+    display: block;
+}
+#login {
+    margin: auto
+    width: 30%;
+    border-style: solid;
+    padding: 5px;
+    display: block;
+}
+#Add {
+    float: left;
+}
+#filter {
+    float: right;
+}
+.button {
+}
+
+.playbutton {
+    margin.auto
+}
+table {
+    width: 100%;
+}
+th {text-align: left;
+}
+tr.d0 td {
+    background-color: #808080; color: black;
+}
+tr.d1 td {
+    background-color: #D3D3D3; color: black;
+}

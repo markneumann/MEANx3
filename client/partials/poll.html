@@ -1,0 +1,45 @@
+<div ng-controller='PollController'>
+    <h3><a href='#/dashboard'>Go to Polls</a></h3>
+    <h3>The Poll</h3>
+    <div id='errorArea'>
+        <h2>
+            {{errorArea.errmsg}}
+        </h2>
+    </div>
+
+    <div ng-model='questions'>
+    Question: {{question.question}}<br>
+    ID: {{question._id}}
+    <table>
+        <tr><th>Option</th><th>Current Count of Votes</th><th>Action</th></tr>
+        <tr>
+            <td>{{question.option1}}</td>
+            <td>{{question.option1count}}</td>
+            <td>
+                <div class="button"><input type='submit' value='Submit' ng-click='submit_poll(question._id,1)'</div>
+            </td>
+        </tr>
+        <tr>
+            <td>{{question.option2}}</td>
+            <td>{{question.option2count}}</td>
+            <td>
+                <div class="button"><input type='submit' value='Submit' ng-click='submit_poll(question._id,2)'</div>
+            </td>
+        </tr>
+        <tr>
+            <td>{{question.option3}}</td>
+            <td>{{question.option3count}}</td>
+            <td>
+                <div class="button"><input type='submit' value='Submit' ng-click='submit_poll(question._id,3)'</div>
+            </td>
+        </tr>
+        <tr>
+            <td>{{question.option4}}</td>
+            <td>{{question.option4count}}</td>
+            <td>
+                <div class="button"><input type='submit' value='Submit' ng-click='submit_poll(question._id,4)'</div>
+            </td>
+        </tr>
+    </table>
+
+</div>
