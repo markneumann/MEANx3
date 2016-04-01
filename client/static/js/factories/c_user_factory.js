@@ -1,7 +1,7 @@
 console.log('loading user_factory');
 // // create the UserFactory
 
-MEANModule.factory('UserFactory', function($http) {
+MEANModule.factory('UserFactory', function($http) {             /////////////
 
     var factory = {};
     var tests = [];
@@ -9,7 +9,7 @@ MEANModule.factory('UserFactory', function($http) {
     //var lastScore = -1;
 
 //
-    factory.login = function(data, callback) {
+    factory.login = function(data, callback) {                  /////////////
         console.log('the login name', data.name);
         // data.name = data.name;
         //console.log('revised data = ', data);
@@ -24,7 +24,7 @@ MEANModule.factory('UserFactory', function($http) {
             });
     };
 
-    factory.getUser = function() {
+    factory.getUser = function() {                              /////////////
         return currentUser;
     };
 

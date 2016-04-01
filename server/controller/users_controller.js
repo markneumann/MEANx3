@@ -1,6 +1,6 @@
 console.log("loading user_controller");
 var mongoose = require('mongoose');
-var Users = mongoose.model('users');
+var Users = mongoose.model('users');        /////////////
 var catch_errors = function(err){
     res.json({error:err});
 };

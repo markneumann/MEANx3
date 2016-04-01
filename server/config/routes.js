@@ -1,11 +1,11 @@
 console.log("loading routes");
 //********** RESTful routes ********
 var mongoose = require('mongoose');
-var Questions = require('../controller/questions_controller.js');
-var Polls = require('../controller/polls_controller.js');
-var Users = require('../controller/users_controller.js');
+var Questions = require('../controller/questions_controller.js');   /////////////
+var Polls = require('../controller/polls_controller.js');           /////////////
+var Users = require('../controller/users_controller.js');           /////////////
 
-module.exports = function(app){
+module.exports = function(app){                                    /////////////
     app.get('/polls', Polls.index);  //Return the list of completed polls for the dashboard
     app.post('/polls', Polls.new_poll); //Save test results from one test from the test partial
     // //app.post('/polls/edit/:id, Test.edit_test');

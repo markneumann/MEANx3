@@ -1,10 +1,10 @@
 //basic model
-console.log("loading user_model");
+console.log("loading user_model");    /////////////
 var mongoose = require('mongoose');
 //
-var UserSchema = new mongoose.Schema({
+var UserSchema = new mongoose.Schema({    /////////////
     //define schema here
-    name: { type: String, required: true, unique: true},
+    name: { type: String, required: true, unique: true},    /////////////
     }, { timestamps: {
         createdAt: 'created_at'
             }
@@ -13,6 +13,6 @@ var UserSchema = new mongoose.Schema({
 
 //NameSchema.path('name').required(true, 'Name cannot be blank');
 
-mongoose.model('users', UserSchema);
+mongoose.model('users', UserSchema);  /////////////
 
-console.log("exit user_models");
+console.log("exit user_models");   /////////////

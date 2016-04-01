@@ -1,6 +1,6 @@
 console.log('loading user_controller');
 // // Now let's create a controller with some hardcoded data!
-MEANModule.controller('UserController', function($scope, $location, UserFactory) {
+MEANModule.controller('UserController', function($scope, $location, UserFactory) {      /////////////
     // This line goes at the top of the controller callback because the minute the controller gets called upon we want to create the $scope.questions array
     console.log('top of user controller');
     $scope.loggedIn = false;
