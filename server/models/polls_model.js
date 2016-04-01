@@ -6,7 +6,11 @@ var PollSchema = new mongoose.Schema({
     //define schema here
     name: String,
     q_id: String,
-    question: String
+    comment: { type: String,
+               required: true,
+               minlength: 5},
+    details: String,
+    like_count: Number,
 }, { timestamps: {createdAt: 'created_at'}
 });
 

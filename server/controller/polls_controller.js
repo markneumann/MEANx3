@@ -10,7 +10,6 @@ module.exports = (function() {
             console.log("--> polls index path");
             Poll.find()
             .then(function(results){
-
                 // console.log('results=',results);
                 res.json(results);
             })
@@ -26,7 +25,8 @@ module.exports = (function() {
             var newPoll = new Poll({
                 name: req.body.name,
                 q_id: req.body.q_id,
-                question: req.body.question
+                comment: req.body.comment,
+                details: req.body.details
             });
             newPoll.save()
             .then(function() {
@@ -42,21 +42,6 @@ module.exports = (function() {
             });
         },
 
-        // remove_poll:  function(req, res){
-        //     console.log("--> remove poll path");
-        //     console.log(req.params);
-        //     Poll.remove({_id: req.params.id})
-        //     .then(function() {
-        //         console.log("return 200");
-        //         res.status(200); // send back http 200 status if successful
-        //         res.json({success: true});
-        //     })
-        //     .catch (function(err){
-        //         console.log(err);
-        //         res.status(500); // send back http 200 status if successful
-        //         res.json({error: err});
-        //     });
-        // },
 
         // show_name:  function(req, res){
         //     console.log("--> show path");

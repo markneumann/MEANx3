@@ -13,7 +13,6 @@ module.exports = function(app){                                    /////////////
     // // // app.get('/polls/show/:id', Test.show_test);
     app.get('/questions', Questions.index); // Return a question (random), with answers, etc.. for test partial
     app.post('/questions', Questions.new_question);  // Create a new question submitted fro question partial
-    app.put('/questions/edit', Questions.edit_question);
     app.get('/questions/show/:id', Questions.show_question);
     app.post('/users', Users.login);  // Login the user, creating a new one if needed
     app.get("*", route404);
