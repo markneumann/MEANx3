@@ -14,30 +14,30 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     });
 
     // Accept a vote and update the question record for that option1
-    $scope.submit_poll = function(q_id, opt_num) {
-        inc_opt_count = {
-            q_id: q_id,
-            opt_num: opt_num
-        };
-        console.log('submit_poll event ', inc_opt_count);
-        //var new_count += $scope.optionNumber;
-        QuestionFactory.update(inc_opt_count, function(theOutput) {
-            console.log("new poll =", $scope.new_poll);
-            console.log('returned poll', theOutput);
-
-            $location.url('/dashboard');
-        });
-    };
-
-    // // Create the new poll record
-    // $scope.submit_poll = function(optionNumber) {
-    //     console.log('submit_poll event');
+    // $scope.submit_poll = function(q_id, opt_num) {
+    //     inc_opt_count = {
+    //         q_id: q_id,
+    //     };
+    //     console.log('submit_poll event ', inc_opt_count);
     //     //var new_count += $scope.optionNumber;
-    //     PollFactory.create($scope.new_poll, function(theOutput) {
+    //     QuestionFactory.update(inc_opt_count, function(theOutput) {
     //         console.log("new poll =", $scope.new_poll);
     //         console.log('returned poll', theOutput);
+    //
+    //         $location.url('/dashboard');
     //     });
     // };
+
+    // New poll record
+    $scope.new_poll = function(q_id) {
+        console.log('q_id =', $scope.question.q_id);
+        console.log('new_poll event', $scope.new_p);
+        //simply pass in the entire object
+        PollFactory.create($scope.new_p, function(theOutput) {
+            console.log('returned poll', theOutput);
+        });
+        // $location.url('/dashboard');
+    };
 
 //
     // function forErrors(output) {

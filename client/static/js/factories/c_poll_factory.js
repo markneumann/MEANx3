@@ -22,7 +22,7 @@ MEANModule.factory('PollFactory', function($http) {
 
 // create a new poll instance
     factory.create = function(data, callback) {
-        //console.log('the poll data', data);
+        console.log('the poll data', data);
         $http.post('/polls', data)
             .then(function(output) {
                 //console.log("post /polls response: ", output.data);

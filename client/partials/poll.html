@@ -9,16 +9,18 @@
 
         <h3>{{question.theQuestion}}</h3>
         <p> {{question.description}}</p>
+        {{question._id}}
+
         <div >
 
             <h2 ng-model='new_p.user'>{{user}}, please enter your question below</h2>
                 <form>
                     <form name='newq'>
                         Your Answer: <br>
-                        <textarea name='newp' rows ='4' cols='50' ng-model='new_p.answer'></textarea><br>
+                        <textarea name='newp' rows ='4' cols='50' ng-model='new_p.comment'></textarea><br>
                         Supporting details for your answer (optional):<br>
-                        <textarea name='newp'  rows ='4' cols='50' ng-model='new_p.description'></textarea><br>
-                        <input type='submit' ng-click="submit_poll(question._id)" value = 'Create Poll'>
+                        <textarea name='newp'  rows ='4' cols='50' ng-model='new_p.details'></textarea><br>
+                        <input type='submit' ng-click="new_poll(question._id)" value = 'Create Poll'>
                         <input type='submit' value='Cancel' ng-click="new_q = {}">
                     </form>
                 <form>
