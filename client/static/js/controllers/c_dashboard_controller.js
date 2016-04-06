@@ -51,19 +51,6 @@ MEANModule.controller('DashboardController', function($scope, $location, Questio
 //         }
     };
 
-//     $scope.removepoll = function(poll) {
-//         var removeThisPoll =$scope.polls.indexOf(poll);
-//         console.log('removepoll: ', removeThisPoll);
-//         console.log('$scope.polls = ', $scope.polls);
-//         console.log('remove_id: ', $scope.polls[removeThisPoll]._id);
-//         if(~removeThisPoll){
-//             var remove_id = $scope.polls[removeThisPoll]._id;
-//             // note the use of callbacks here
-//             PollFactory.remove(remove_id, function() {
-//                 console.log("remove poll =", removeThisPoll);
-//                 $scope.polls.splice(removeThisPoll,1);
-//             });
-//         }
-//     };
+
 //
 });

@@ -22,7 +22,7 @@ MEANModule.factory('PollFactory', function($http) {
 
     factory.show = function(data, callback) {
         console.log("factory.show poll = ", data);
-         $http.get('/polls/show/'+data)
+         $http.get('/polls/show/' + data)
             .then(function(output) {
                 polls = output.data;
                 console.log("output =", polls);
@@ -48,10 +48,10 @@ MEANModule.factory('PollFactory', function($http) {
 
     //called from poll controller to update the Likes count
    factory.update = function(data, callback) {
-       //console.log("factory.update data:", data);
-       $http.put('/poll/edit/', data)
+       console.log("poll factory.update data:", data);
+       $http.get('/polls/edit/' + data)
        .then(function(output) {
-           console.log("show response",output);
+           console.log("edit response",output);
            callback(output.data);
        })
        .catch (function(err){
