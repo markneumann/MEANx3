@@ -21,12 +21,12 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     console.log('$scope.user = ', $scope.user);
 
     // Accept a vote and update the question record for that option1
-    $scope.submit_like= function(p_id) {
+    $scope.submit_like= function(p_id, idx) {
         console.log('submit_like event ', p_id);
-        console.log('$scope.polls[0] =', $scope.polls);
+        console.log('$scope.polls[idx] =', $scope.polls[idx] );
         PollFactory.update(p_id, function(theOutput) {
             console.log('returned like', theOutput);
-            $scope.polls[0].like_count++;
+            $scope.polls[idx].like_count++;
         });
     };
 
