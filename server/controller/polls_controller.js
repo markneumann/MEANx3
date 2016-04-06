@@ -37,7 +37,7 @@ module.exports = (function() {
                     console.log("incremented question poll counter");
                 })
                 .catch (function(err){
-                    console.log("error incrmenting question poll counter",err);
+                    console.log("error incrementing question poll counter",err);
                 });
                 res.status(200); // send back http 200 status if successful
                 res.json(newPoll);
@@ -63,5 +63,22 @@ module.exports = (function() {
                 }
             });
         },
+
+        edit_poll: function(req, res) {
+            console.log("--> edit_poll - req.params =", req.params);
+            Poll.findByIdAndUpdate({"_id": req.params.id},{$inc: {"like_count": 1}})
+            .then(function() {
+                console.log("incremented poll like counter");
+                res.status(200); // send back http 200 status if successful
+                res.json({success: 'true'});
+            })
+            .catch (function(err){
+                console.log("error incrementing poll like counter",err);
+                res.status(500); // send back http 200 status if successful
+                res.json({error: err});
+            });
+
+        },
+
     };
 })(); //returns object
