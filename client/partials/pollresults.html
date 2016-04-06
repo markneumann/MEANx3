@@ -7,10 +7,9 @@
     <div ng-model='question'>
         <h2> {{question.theQuestion}} </h2>
         <p>  {{question.description}} </p>
-        {{question._id}}
 
         <table>
-            <tr ng-repeat="poll in polls | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
+            <tr ng-repeat="poll in polls | filter: {name:filter_name}"  >
                 <td>{{poll.name}}:<br>
                     {{poll.comment}}<br>
                     {{poll.details}}</td>
@@ -18,7 +17,6 @@
                 <td>
                     <div class="button"><input type='submit' value='Like'
                         ng-click='submit_like(poll._id)'</div>
-                        {{question._id}}
                 </td>
             </tr>
         </table>

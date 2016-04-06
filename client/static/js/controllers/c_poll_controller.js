@@ -8,6 +8,7 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     // show the polls
     console.log('route params', $routeParams);
     var id = $routeParams.id;
+
     QuestionFactory.show(id, function(data){
         console.log('returning question from factory');
         $scope.question = data;
@@ -16,6 +17,8 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         console.log('returning poll from factory');
         $scope.polls = data;
     });
+    $scope.user = UserFactory.getUser().name;
+    console.log('$scope.user = ', $scope.user);
 
     // Accept a vote and update the question record for that option1
     $scope.submit_like= function(p_id) {
@@ -28,9 +31,12 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
 
     // New poll record
     $scope.new_poll = function(q_id) {
+        var currentUser = UserFactory.getUser().name;
+        console.log('user = ', currentUser);
         console.log('q_id =', q_id);
         console.log('new_poll event', $scope.new_p);
         var new_poll = {
+            name : currentUser,
             q_id: q_id,
             comment: $scope.new_p.comment,
             details: $scope.new_p.details
@@ -40,7 +46,7 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         PollFactory.create(new_poll, function(theOutput) {
             console.log('returned poll', theOutput);
         });
-        // $location.url('/dashboard');
+        $location.url('/dashboard');
     };
 
     // show poll record

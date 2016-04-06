@@ -36,7 +36,7 @@ MEANModule.factory('QuestionFactory', function($http) {
 
      //called from poll controller to show the question and data
     factory.show = function(data, callback) {
-        console.log("factory.show data:", data);
+        console.log("factory.show question data:", data);
         $http.get('/questions/show/' + data)
         .then(function(output) {
             console.log("show response",output);

@@ -21,11 +21,11 @@ MEANModule.factory('PollFactory', function($http) {
     };
 
     factory.show = function(data, callback) {
-        console.log("factory.show = ", data);
-         $http.get('/polls/show/56fec9ad350cc195ed6c64e7')
+        console.log("factory.show poll = ", data);
+         $http.get('/polls/show/'+data)
             .then(function(output) {
                 polls = output.data;
-                console.log("output =", output.data);
+                console.log("output =", polls);
                 callback(polls);
             })
             .catch(function(err) {

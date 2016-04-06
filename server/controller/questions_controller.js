@@ -8,7 +8,7 @@ module.exports = (function() {
     return {
         index:  function(req, res){
             console.log("--> questions index path");
-            Question.find()
+            Question.find().sort({created_at:'desc'})
             .then(function(results){
                     res.json(results);
             })
