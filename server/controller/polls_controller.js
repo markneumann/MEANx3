@@ -1,6 +1,7 @@
 console.log("loading poll_controller");
 var mongoose = require('mongoose');
 var Poll = mongoose.model('polls');
+var Question = mongoose.model('questions');  //so a new poll can update questions counter
 var catch_errors = function(err){
     res.json({error:err});
 };
@@ -31,9 +32,15 @@ module.exports = (function() {
             newPoll.save()
             .then(function() {
                 console.log("return 200", newPoll);
+                Question.findByIdAndUpdate(newPoll.q_id,{$inc: {"answers": 1}})
+                .then(function() {
+                    console.log("incremented question poll counter");
+                })
+                .catch (function(err){
+                    console.log("error incrmenting question poll counter",err);
+                });
                 res.status(200); // send back http 200 status if successful
                 res.json(newPoll);
-                // res.json({success: true});
             })
             .catch (function(err){
                 console.log(err);
