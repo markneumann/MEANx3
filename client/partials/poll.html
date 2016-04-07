@@ -1,6 +1,10 @@
 <div ng-controller='PollController'>
-    <h3><a href='#/dashboard'>Go to Polls</a></h3>
-    <h3>The Poll</h3>
+    <div ng-controller='UserController'>
+        <h3><a href='#/dashboard'>Home</a> |
+        <a href='#/question'>Add a Question</a> |
+        <a href='' ng-click='logout()'>Logout</a></h3>
+    </div>
+
     <div id='errorArea'>
         <h2>
             {{errorArea.errmsg}}
@@ -10,7 +14,7 @@
         <h3>{{question.theQuestion}}</h3>
         <p> {{question.description}}</p>
 
-            <h2 ng-model='new_p.user'>{{user}}, please enter your question below</h2>
+            <h2 ng-model='new_p.user'>{{loggedIn}}, please enter your answer below</h2>
                 <form>
                     <form name='newq'>
                         Your Answer: <br>

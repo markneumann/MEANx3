@@ -4,6 +4,9 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     // This line goes at the top of the controller callback because the minute the controller gets called upon we want to create the $scope.friends array
     $scope.errorArea = {};
 
+    $scope.loggedIn = UserFactory.getUser().name;
+    console.log('$scope.loggedIn = ', $scope.loggedIn);
+
     console.log('top of PollController');
     // show the polls
     console.log('route params', $routeParams);
@@ -17,8 +20,7 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         console.log('returning poll from factory');
         $scope.polls = data;
     });
-    $scope.user = UserFactory.getUser().name;
-    console.log('$scope.user = ', $scope.user);
+
 
     // Accept a vote and update the question record for that option1
     $scope.submit_like= function(p_id, idx) {

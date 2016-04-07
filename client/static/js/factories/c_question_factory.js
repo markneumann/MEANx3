@@ -6,6 +6,7 @@ MEANModule.factory('QuestionFactory', function($http) {
     //not used
     var factory = {};
     var questions = [];
+
     factory.index = function(callback) {
         console.log("questions factory.index");
         // Where do we get access to $http?
