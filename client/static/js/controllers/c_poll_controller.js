@@ -47,7 +47,7 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         PollFactory.create(new_poll, function(theOutput) {
             console.log('returned poll', theOutput);
         });
-        $location.url('/dashboard');
+        $location.url('/poll/show/'+q_id);
     };
 
     // show poll record
