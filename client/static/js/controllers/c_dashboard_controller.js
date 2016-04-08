@@ -11,7 +11,5 @@ MEANModule.controller('DashboardController', function($scope, $location, Questio
         console.log("$scope.questions =", $scope.questions);
     });
 
-
-
 //
 });
