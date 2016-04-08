@@ -1,24 +1,35 @@
 <div ng-controller='QuestionController'>
     <div ng-controller='UserController'>
         <h3><a href='#/dashboard'>Home</a> |
-        <a href='#/question'>Add a Question</a> |
-        <a href='' ng-click='logout()'>Logout</a></h3>
+        <a href='#/question'>Add a Question</a>
+        <a id= 'logout' href='' ng-click='logout()'>Logout</a></h3>
     </div>
-    <h3>New Question</h3>
+    <h2>New Question</h2>
     <div >
 
-        <h2 ng-model='new_q.user'>{{user}}, please enter your question below</h2>
-            <form>
-                <form name='newq'>
-                    Question: <br>
-                    <textarea name='newq' rows ='4' cols='50' ng-model='new_q.question'></textarea><br>
-                    Description
-                    (Optional):<br>
-                     <textarea name='newq'  rows ='4' cols='50' ng-model='new_q.description'></textarea><br>
-                    <input type='submit' ng-click="addquestion()" value = 'Create Poll'>
-                    <input type='submit' value='Cancel' ng-click="new_q = {}">
-                </form>
-            <form>
+        <h3 ng-model='new_q.user'>{{user}}, please enter your question below</h3>
+
+            <form name='newq' style="padding: 10px; width: 500px">
+                <div class="labeledForm">
+                    <label for="question"> Question: &nbsp;
+                    </label>
+                    <textarea name='newq' id="question" rows ='4' cols='55' ng-model='new_q.question'></textarea><br>
+                </div>
+                <div class="labeledForm">
+                    <label for="description">Description &nbsp;<br>
+                        (Optional):
+                    </label>
+                     <textarea name='newq'  id="description" rows ='4' cols='55' ng-model='new_q.description'></textarea><br>
+                </div>
+                <br>
+                <div style="float: right;">
+                    <input type='submit' ng-click="addquestion()" value = 'Submit'
+                        style="box-shadow: 5px 5px 3px #888888;">
+                    <input type='submit' value='Cancel' ng-click="new_q = {}"
+                        style="box-shadow: 5px 5px 3px #888888;">
+                </div>
+            </form>
+
         <br>
 
 </div>

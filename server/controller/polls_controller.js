@@ -53,13 +53,13 @@ module.exports = (function() {
         show_poll:  function(req, res){
             console.log("--> show path");
             console.log(req.params.id);
-            Poll.find({"q_id": req.params.id}).sort({created_at:'desc'}).exec(function(err, polls) {
+            Poll.find({"q_id": req.params.id}).sort({like_count: 'desc',created_at:'desc'}).exec(function(err, polls) {
                 if(err) {
                     console.log(err);
                     res.render('errors', {title: 'you have errors!', errors: name.errors});
                 } else {
                     res.json(polls); //<-- think we change this
-                    console.log('polls =', polls);
+                    // console.log('polls =', polls);
                 }
             });
         },

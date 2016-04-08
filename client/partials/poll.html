@@ -1,8 +1,8 @@
 <div ng-controller='PollController'>
     <div ng-controller='UserController'>
         <h3><a href='#/dashboard'>Home</a> |
-        <a href='#/question'>Add a Question</a> |
-        <a href='' ng-click='logout()'>Logout</a></h3>
+        <a href='#/question'>Add a Question</a>
+        <a id= 'logout' href='' ng-click='logout()'>Logout</a></h3>
     </div>
 
     <div id='errorArea'>
@@ -21,7 +21,7 @@
                         <textarea name='newp' rows ='4' cols='50' ng-model='new_p.comment'></textarea><br>
                         Supporting details for your answer (optional):<br>
                         <textarea name='newp'  rows ='4' cols='50' ng-model='new_p.details'></textarea><br>
-                        <input type='submit' ng-click="new_poll(question._id)" value = 'Create Poll'>
+                        <input type='submit' ng-click="new_poll(question._id)" value = 'Answer'>
                         <input type='submit' value='Cancel' ng-click="new_q = {}">
 
                     </form>
