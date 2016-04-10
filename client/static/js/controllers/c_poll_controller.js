@@ -1,7 +1,7 @@
 console.log('loading poll_controller');
 // //
 MEANModule.controller('PollController', function($scope, $routeParams, $location, QuestionFactory, PollFactory, UserFactory) {
-    // This line goes at the top of the controller callback because the minute the controller gets called upon we want to create the $scope.friends array
+    // When called from pollresults, show the question and all the answers.
     $scope.errorArea = {};
 
     $scope.loggedIn = UserFactory.getUser().name;
@@ -22,7 +22,8 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
     });
 
 
-    // Accept a vote and update the question record for that option1
+    // Accept a vote and update the answer like count
+    // called from the pollresuls
     $scope.submit_like= function(p_id, idx) {
         console.log('submit_like event ', p_id);
         console.log('$scope.polls[idx] =', $scope.polls[idx] );
@@ -32,7 +33,7 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         });
     };
 
-    // New poll record
+    // New poll record, called from the DashboardController
     $scope.new_poll = function(q_id) {
         var currentUser = UserFactory.getUser().name;
         console.log('user = ', currentUser);
@@ -49,34 +50,35 @@ MEANModule.controller('PollController', function($scope, $routeParams, $location
         PollFactory.create(new_poll, function(theOutput) {
             console.log('returned poll', theOutput);
         });
-        $location.url('/poll/show/'+q_id);
+        console.log('AFTER poll answer create, the q_id is ', q_id);
+        $location.path('/poll/show/' + q_id);
     };
 
-    // show poll record
-    $scope.show_poll = function(q_id) {
-        console.log('q_id =', $scope.question.q_id);
-        console.log('new_poll event', $scope.new_p);
-        //simply pass in the entire object
-        PollFactory.show($scope.new_p, function(theOutput) {
-            console.log('returned poll', theOutput);
-        });
-        // $location.url('/dashboard');
-    };
+    // show poll record never used, instead the "index" view above is ues
+    // $scope.show_poll = function(q_id) {
+    //     console.log('q_id =', $scope.question.q_id);
+    //     console.log('new_poll event', $scope.new_p);
+    //     //simply pass in the entire object
+    //     PollFactory.show($scope.new_p, function(theOutput) {
+    //         console.log('returned poll', theOutput);
+    //     });
+    //     // $location.url('/dashboard');
+    // };
 
 
 //
-    // function forErrors(output) {
-    //     console.log('catch --->', output);
-    //     if(output.data.error){  //handle other errors
-    //         //console.log('error = ', output.data.error);
-    //         console.log('error errmsg = ', output.data.error.errmsg);
-    //         $scope.errorArea.errmsg = output.data.error.errmsg;
-    //     }
-    //     if(output.data.errmsg){   //handle not unique
-    //         console.log('errmsg = ', output.data.errmsg);
-    //         $scope.errorArea.errmsg = output.data.error;
-    //
-    //     }
-    // }
+    function forErrors(output) {
+        console.log('catch --->', output);
+        if(output.data.error){  //handle other errors
+            //console.log('error = ', output.data.error);
+            console.log('error errmsg = ', output.data.error.errmsg);
+            $scope.errorArea.errmsg = output.data.error.errmsg;
+        }
+        if(output.data.errmsg){   //handle not unique
+            console.log('errmsg = ', output.data.errmsg);
+            $scope.errorArea.errmsg = output.data.error;
+
+        }
+    }
 //
 });

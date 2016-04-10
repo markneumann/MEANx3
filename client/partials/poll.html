@@ -1,8 +1,8 @@
 <div ng-controller='PollController'>
-    <div ng-controller='UserController'>
+    <div>
         <h3><a href='#/dashboard'>Home</a> |
         <a href='#/question'>Add a Question</a>
-        <a id= 'logout' href='' ng-click='logout()'>Logout</a></h3>
+        <a id= 'logout' href='' ng-controller='UserController' ng-click='logout()'>Logout</a></h3>
     </div>
 
     <div id='errorArea'>
@@ -13,8 +13,9 @@
 
         <h3>{{question.theQuestion}}</h3>
         <p> {{question.description}}</p>
+        {{question._id}}
 
-            <h2 ng-model='new_p.user'>{{loggedIn}}, please enter your answer below</h2>
+            <h2 {{loggedIn}}, please enter your answer below</h2>
                 <form>
                     <form name='newq'>
                         Your Answer: <br>

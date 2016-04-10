@@ -38,7 +38,7 @@ MEANModule.factory('PollFactory', function($http) {
         console.log('the poll data', data);
         $http.post('/polls', data)
             .then(function(output) {
-                //console.log("post /polls response: ", output.data);
+                console.log("post /polls response: ", output.data);
                 callback(output.data);
             })
             .catch(function(err) {

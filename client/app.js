@@ -8,16 +8,16 @@ MEANModule.config(function($routeProvider){                     /////////////
     .when('/', {
         templateUrl: '/partials/login.html'
     })
-    .when('/dashboard', {
+    .when('/dashboard', {                           // show the questions
         templateUrl: '/partials/dashboard.html'
     })
-    .when('/poll/new/:id', {
+    .when('/poll/new/:id', {                        // new answer form
         templateUrl: '/partials/poll.html'
     })
-    .when('/poll/show/:id', {
+    .when('/poll/show/:id', {                       // show the results for q_id
         templateUrl: '/partials/pollresults.html'
     })
-    .when('/question', {
+    .when('/question', {                           // new question form
         templateUrl: '/partials/question.html'
     })
     .otherwise({

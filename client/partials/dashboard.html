@@ -1,10 +1,10 @@
 <!-- dashboard partial -->
 <div ng-controller='DashboardController'>
 
-    <div ng-controller='UserController'>
+    <div>
         <h3><a href='#/dashboard'>Home</a> |
         <a href='#/question'>Add a Question</a>
-        <a id= 'logout' href='' ng-click='logout()'>Logout</a></h3>
+        <a id= 'logout' href='' ng-controller='UserController' ng-click='logout()'>Logout</a></h3>
     </div>
         Welcome: {{loggedIn}} <p>
     <div id= 'filter'>
